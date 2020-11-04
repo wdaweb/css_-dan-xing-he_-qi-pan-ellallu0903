@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HW_Chinese_Chess</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            font-family: '標楷體', 'Noto Sans TC', 'Microsoft JhengHei', sans-serif;
+        }
+
+        .container {
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .outside_text {
+            font-size: 35px;
+            writing-mode: vertical-lr;
+            margin: 20px;
+        }
+
+        .chess_box {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 600px;
+            height: 675px;
+            border: 1px solid black;
+            position: relative;
+        }
+
+        .chess_inline_box {
+            border-spacing: 0px;
+            position: absolute;
+        }
+
+        .chess_inline_box tr td {
+            width: 62.5px;
+            height: 62.5px;
+            border: 1px solid black;
+        }
+
+        .word_1 {
+            width: 250px;
+            font-size: 40px;
+            text-align: center;
+            position: relative;
+            left: 17%;
+        }
+
+        .word_2 {
+            width: 250px;
+            font-size: 40px;
+            text-align: center;
+            position: relative;
+            left: 50%;
+
+        }
+
+        .line_1 {
+            width: 62.5px;
+            height: 1px;
+            position: relative;
+        }
+
+        .line_1::after {
+            content: '';
+            width: 62.5px;
+            height: 1px;
+            background-color: black;
+            position: absolute;
+            transform: rotate(45deg) scale(1.45);
+        }
+
+        .line_2 {
+            width: 62.5px;
+            height: 1px;
+            position: relative;
+        }
+
+        .line_2::after {
+            content: '';
+            width: 62.5px;
+            height: 1px;
+            background-color: black;
+            position: absolute;
+            transform: rotate(-45deg) scale(1.45);
+        }
+
+        .line_3 {
+            width: 62.5px;
+            height: 1px;
+            position: relative;
+        }
+
+        .line_3::after {
+            content: '';
+            width: 62.5px;
+            height: 1px;
+            background-color: black;
+            position: absolute;
+            transform: rotate(135deg) scale(1.4);
+        }
+
+        .line_4 {
+            width: 62.5px;
+            height: 1px;
+            position: relative;
+        }
+
+        .line_4::after {
+            content: '';
+            width: 62.5px;
+            height: 1px;
+            background-color: black;
+            position: absolute;
+            transform: rotate(-135deg) scale(1.4);
+        }
+
+        .circle {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 52px;
+            height: 52px;
+            border-radius: 50%;
+            background: white;
+            border: 1px solid black;
+            z-index: 1;
+            margin: 15px 5px;
+        }
+
+        .black_chess {
+            font-size: 35px;
+        }
+
+        .red_chess {
+            color: red;
+            font-size: 35px;
+        }
+
+        /* .chess_all {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            align-items: center;
+        } */
+
+        .chess_1 {
+            display: flex;
+            position: relative;
+            top: -75px;
+            left: 0%;
+        }
+
+        .chess_2 {
+            display: flex;
+            justify-content: space-around;
+            position: relative;
+            top: -35px;
+        }
+
+        .chess_3 {
+            display: flex;
+            justify-content: space-between;
+            position: relative;
+            top: -55px;
+            left: 0%;
+        }
+
+        .chess_4 {
+            display: flex;
+            justify-content: space-between;
+            position: relative;
+            top: 55px;
+            left: 0%;
+        }
+
+        .chess_5 {
+            display: flex;
+            justify-content: space-around;
+            position: relative;
+            top: 35px;
+        }
+
+        .chess_6 {
+            display: flex;
+            position: relative;
+            top: 75px;
+            left: 0%;
+        }
+
+        .margin-200 {
+            margin-right: 200px;
+        }
+    </style>
+</head>
+
+<body class="container">
+    <div class="outside_text">棋盤裡，車無輪，馬無韁，叫聲將軍提防提防</div>
+    <div class="chess_box">
+        <table class="chess_inline_box">
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td class="line_1"></td>
+                <td class="line_2"></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td class="line_3"></td>
+                <td class="line_4"></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td colspan="9">
+                    <span class="word_1">楚河</span>
+                    <span class="word_2">漢界</span>
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td class="line_1"></td>
+                <td class="line_2"></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td class="line_3"></td>
+                <td class="line_4"></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+        </table>
+        <div class="chess_all">
+            <div class="chess_1">
+                <div class="circle black_chess">車</div>
+                <div class="circle black_chess">馬</div>
+                <div class="circle black_chess">象</div>
+                <div class="circle black_chess">士</div>
+                <div class="circle black_chess">將</div>
+                <div class="circle black_chess">士</div>
+                <div class="circle black_chess">象</div>
+                <div class="circle black_chess">馬</div>
+                <div class="circle black_chess">車</div>
+            </div>
+            <div class="chess_2">
+                <div class="circle black_chess margin-200">包</div>
+                <div class="circle black_chess">包</div>
+            </div>
+            <div class="chess_3">
+                <div class="circle black_chess">卒</div>
+                <div class="circle black_chess">卒</div>
+                <div class="circle black_chess">卒</div>
+                <div class="circle black_chess">卒</div>
+                <div class="circle black_chess">卒</div>
+            </div>
+            <div class="chess_4">
+                <div class="circle red_chess">兵</div>
+                <div class="circle red_chess">兵</div>
+                <div class="circle red_chess">兵</div>
+                <div class="circle red_chess">兵</div>
+                <div class="circle red_chess">兵</div>
+            </div>
+            <div class="chess_5">
+                <div class="circle red_chess margin-200">炮</div>
+                <div class="circle red_chess">炮</div>
+            </div>
+            <div class="chess_6">
+                <div class="circle red_chess">俥</div>
+                <div class="circle red_chess">傌</div>
+                <div class="circle red_chess">相</div>
+                <div class="circle red_chess">仕</div>
+                <div class="circle red_chess">帥</div>
+                <div class="circle red_chess">仕</div>
+                <div class="circle red_chess">相</div>
+                <div class="circle red_chess">傌</div>
+                <div class="circle red_chess">俥</div>
+            </div>
+        </div>
+    </div>
+    <div class="outside_text">圖畫裡，龍不吟，虎不嘯，小小書僮可笑可笑</div>
+</body>
+
+</html>
